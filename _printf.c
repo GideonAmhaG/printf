@@ -13,7 +13,7 @@ int _printf(const char *format, ...)
 	va_list ap;
 	int i = 0, j, len = 0, len_ap = 0;
 	print_t funcs[] = { {"c", print_char}, {"s", print_string},
-		{"d", print_integer}, {"i", print_integer}};
+		{"d", print_integer}, {"i", print_integer}, {'b', print_binary}};
 
 	va_start(ap, format);
 
