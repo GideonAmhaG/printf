@@ -11,7 +11,7 @@ int print_string(va_list *ap)
 {
 	char *s;
 	char *null = "(null)";
-	int len = 0;
+	int len = 0, len_null = 0;
 
 	s = va_arg(*ap, char *);
 
@@ -21,8 +21,9 @@ int print_string(va_list *ap)
 		{
 			_putchar(*null);
 			null++;
+			len_null++;
 		}
-		return (0);
+		return (len_null);
 	}
 
 	while (*s)
