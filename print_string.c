@@ -10,12 +10,20 @@
 int print_string(va_list *ap)
 {
 	char *s;
+	char *null = "(null)";
 	int len = 0;
 
 	s = va_arg(*ap, char *);
 
 	if (s == NULL)
+	{
+		while (*null)
+		{
+			_putchar(*null);
+			null++;
+		}
 		return (0);
+	}
 
 	while (*s)
 	{
