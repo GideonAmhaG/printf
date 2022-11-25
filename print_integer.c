@@ -1,5 +1,6 @@
 #include "main.h"
-void print_number(int n);
+
+void print_number(int n, int *ct);
 
 /**
  * print_integer - prints an int
@@ -10,9 +11,11 @@ void print_number(int n);
 
 int print_integer(va_list *ap)
 {
-	print_number(va_arg(*ap, int));
+	int len = 1;
 
-	return (0);
+	print_number(va_arg(*ap, int), &len);
+
+	return (len);
 }
 
 
@@ -20,18 +23,23 @@ int print_integer(va_list *ap)
 /**
   * print_number - prints an int via _putchar
   * @n: input int
+  * @c: bytes of the number
   */
 
-void print_number(int n)
+void print_number(int n, int *c)
 {
 	if (n < 0)
 	{
 		n = -n;
 		_putchar('-');
+		*c = *c + 1;
 	}
 
 	if (n / 10)
-		print_number(n / 10);
+	{
+		*c = *c + 1;
+		print_number(n / 10, c);
+	}
 
 	_putchar((n % 10) + '0');
 }

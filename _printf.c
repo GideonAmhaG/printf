@@ -11,15 +11,14 @@
 int _printf(const char *format, ...)
 {
 	va_list ap;
-	int i = 0, j, len = 0, len_ap = 0;
-	print_t funcs[] = {
-		{"c", print_char},
-		{"s", print_string},
-		{"d", print_integer},
-		{"i", print_integer}
-	};
+	int i = 0, j, len = 0, len_ap = 0, len_format = 0;
+	print_t funcs[] = { {"c", print_char}, {"s", print_string},
+		{"d", print_integer}, {"i", print_integer}};
 
 	va_start(ap, format);
+
+	if (format == NULL)
+		return (-1);
 
 	while (format && (*(format + i)))
 	{
@@ -40,13 +39,12 @@ int _printf(const char *format, ...)
 				j++;
 
 			if (j < 4 && *(format + i + 1) != '\0')
-			{
 				len_ap += funcs[j].fp(&ap);
-			}
 		}
-
 		i++;
 	}
+	if (i <= 0)
+		return (0);
 
 	return (len + len_ap);
 	va_end(ap);
