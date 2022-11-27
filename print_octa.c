@@ -4,7 +4,7 @@
 
 /**
  * convert_octa - converts an int to octa
- * @n: is an integer to be converted to binary
+ * @n: is an integer to be converted to octa
  *
  * Return: pointer to a string containing the octa
  * as a string

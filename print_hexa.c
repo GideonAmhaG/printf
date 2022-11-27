@@ -4,7 +4,7 @@
 
 /**
  * convert_hexa - converts an int to a hexadecimal
- * @n: is an integer to be converted to binary
+ * @n: is an integer to be converted to hexa
  *
  * Return: pointer to a string containing the hexa
  * as a string
