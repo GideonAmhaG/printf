@@ -20,6 +20,10 @@ typedef struct print
 	int (*fp)(va_list *ap);
 } print_t;
 
+
+int print_octa(va_list *ap);
+int print_hexa(va_list *ap);
+int print_HEXA(va_list *ap);
 int _putchar(char c);
 int print_char(va_list *ap);
 int print_binary(va_list *ap);

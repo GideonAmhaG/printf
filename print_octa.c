@@ -9,7 +9,7 @@
  * Return: pointer to a string containing the binary
  * as a string
  */
-char *convert_binary(int n)
+char *convert_octa(int n)
 {
 	int rem, i;
 	int len = 0;
@@ -20,14 +20,14 @@ char *convert_binary(int n)
 	while (n != 0)
 	{
 		len++;
-		n = n / 2;
+		n = n / 8;
 	}
 	str = malloc(sizeof(char) * (len + 1));
 
 	for (i = 0; m != 0; i++)
 	{
-		rem = m % 2;
-		m = m / 2;
+		rem = m % 8;
+		m = m / 8;
 		str[(len - 1) - i] = rem + '0';
 	}
 	str[len] = '\0';
@@ -40,12 +40,12 @@ char *convert_binary(int n)
  *
  * Return: number of characters printed
  */
-int print_binary(va_list *ap)
+int print_octa(va_list *ap)
 {
 	char *str;
 	int i;
 
-	str = convert_binary(va_arg(*ap, int));
+	str = convert_octa(va_arg(*ap, int));
 
 	for (i = 0; str[i] != '\0'; i++)
 		_putchar(str[i]);

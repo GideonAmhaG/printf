@@ -12,8 +12,9 @@ int _printf(const char *format, ...)
 {
 	va_list ap;
 	int i = 0, j, len = 0, len_ap = 0;
-	print_t funcs[] = { {"c", print_char}, {"s", print_string},
-		{"d", print_integer}, {"i", print_integer}, {"b", print_binary}};
+	print_t funcs[] = {{"c", print_char}, {"s", print_string},
+		{"d", print_integer}, {"i", print_integer}, {"b", print_binary},
+		{"o", print_octa}, {"x", print_hexa}, {"X", print_HEXA}, {NULL, NULL}};
 
 	va_start(ap, format);
 
@@ -35,10 +36,10 @@ int _printf(const char *format, ...)
 
 		if (*(format + i) == '%')
 		{
-			while (j < 5 && (*(format + i + 1) != *(funcs[j].c)))
+			while (j < 8 && (*(format + i + 1) != *(funcs[j].c)))
 				j++;
 
-			if (j < 5 && *(format + i + 1) != '\0')
+			if (j < 8 && *(format + i + 1) != '\0')
 				len_ap += funcs[j].fp(&ap);
 		}
 		i++;
