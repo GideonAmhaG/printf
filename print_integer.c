@@ -28,6 +28,8 @@ int print_integer(va_list *ap)
 
 void print_number(int n, int *c)
 {
+	unsigned int m;
+
 	if (n < 0)
 	{
 		n = -n;
@@ -35,11 +37,13 @@ void print_number(int n, int *c)
 		*c = *c + 1;
 	}
 
-	if (n / 10)
+	m = n;
+
+	if (m / 10)
 	{
 		*c = *c + 1;
-		print_number(n / 10, c);
+		print_number(m / 10, c);
 	}
 
-	_putchar((n % 10) + '0');
+	_putchar((m % 10) + '0');
 }
