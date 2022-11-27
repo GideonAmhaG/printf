@@ -3,10 +3,10 @@
 #include "main.h"
 
 /**
- * convert_binary - converts an int to a binary
+ * convert_hexa - converts an int to a hexadecimal
  * @n: is an integer to be converted to binary
  *
- * Return: pointer to a string containing the binary
+ * Return: pointer to a string containing the hexa
  * as a string
  */
 char *convert_hexa(int n)
@@ -53,7 +53,7 @@ char *convert_hexa(int n)
 }
 
 /**
- * print_binary - prints an int as a binary
+ * print_hexa - prints an int as a hexa
  * @ap: is a pointer to an int
  *
  * Return: number of characters printed

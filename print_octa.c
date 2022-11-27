@@ -3,10 +3,10 @@
 #include "main.h"
 
 /**
- * convert_binary - converts an int to a binary
+ * convert_octa - converts an int to octa
  * @n: is an integer to be converted to binary
  *
- * Return: pointer to a string containing the binary
+ * Return: pointer to a string containing the octa
  * as a string
  */
 char *convert_octa(int n)
@@ -35,7 +35,7 @@ char *convert_octa(int n)
 }
 
 /**
- * print_binary - prints an int as a binary
+ * print_octa - prints an int as octa
  * @ap: is a pointer to an int
  *
  * Return: number of characters printed
