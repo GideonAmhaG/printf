@@ -1,53 +1,38 @@
-#include <stdlib.h>
-#include <stdarg.h>
 #include "main.h"
 
-/**
- * convert_binary - converts an int to a binary
- * @n: is an integer to be converted to binary
- *
- * Return: pointer to a string containing the binary
- * as a string
- */
-char *convert_binary(int n)
-{
-	int rem, i;
-	int len = 0;
-	int  m;
-	char *str;
-
-	m = n;
-	while (n != 0)
-	{
-		len++;
-		n = n / 2;
-	}
-	str = malloc(sizeof(char) * (len + 1));
-
-	for (i = 0; m != 0; i++)
-	{
-		rem = m % 2;
-		m = m / 2;
-		str[(len - 1) - i] = rem + '0';
-	}
-	str[len] = '\0';
-	return (str);
-}
+void print_base_two(unsigned int n, int *ct);
 
 /**
- * print_binary - prints an int as a binary
- * @ap: is a pointer to an int
+ * print_binary - prints an int in binary
+ * @ap: a list of arguments pointing to the integer to be printed
  *
- * Return: number of characters printed
+ * Return: total bytes of the integer in base 2
  */
+
 int print_binary(va_list *ap)
 {
-	char *str;
-	int i;
+	int len = 1;
 
-	str = convert_binary(va_arg(*ap, int));
+	print_base_two(va_arg(*ap, unsigned int), &len);
 
-	for (i = 0; str[i] != '\0'; i++)
-		_putchar(str[i]);
-	return (i - 1);
+	return (len);
+}
+
+
+
+/**
+ * print_base_two - prints an int via _putchar in binary
+ * @n: input int
+ * @c: bytes of the number in base 2
+ */
+
+void print_base_two(unsigned int n, int *c)
+{
+	if (n / 2)
+	{
+		*c = *c + 1;
+		print_base_two(n / 2, c);
+	}
+
+	_putchar((n % 2) + '0');
 }
